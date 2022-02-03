@@ -1,0 +1,36 @@
+<WaNoTemplate>
+  
+<WaNoMeta>
+  <Author>
+    <Name> Celso R. C. Rego </Name>
+    <Email>celsorego@kit.edu</Email>
+  </Author>
+
+  <Description>
+    This WaNo generates inputs for the simulation of materials for intercalation electrodes in batteries.
+  </Description>
+
+  <Keyword>batteries, material project</Keyword>
+</WaNoMeta>
+  
+<WaNoRoot name="Battery">  
+  <WaNoFile logical_filename="bat_input.json"  name = "json file">file.json</WaNoFile>
+</WaNoRoot>
+
+<WaNoExecCommand>
+  export NANOVER=V4
+  source $NANOMATCH/$NANOVER/local_anaconda/bin/activate
+  conda activate simstack_kit
+  python bat_workflow.py
+</WaNoExecCommand>
+  
+<WaNoInputFiles>
+  <WaNoInputFile logical_filename="bat_workflow.py">bat_workflow.py</WaNoInputFile>
+</WaNoInputFiles>   
+  
+<WaNoOutputFiles>
+  <WaNoOutputFile>POSCAR</WaNoOutputFile>
+  <WaNoOutputFile>POSCAR.charged</WaNoOutputFile>
+</WaNoOutputFiles>
+
+</WaNoTemplate>
